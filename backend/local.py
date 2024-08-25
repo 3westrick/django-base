@@ -1,5 +1,13 @@
 from .settings import *
-ALLOWED_HOSTS = [
-    'localhost:8000',
-    '127.0.0.1:8000',
-]
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'postgres',
+        'USER': 'postgres',
+        'PASSWORD': 'postgres',
+        'HOST': 'postgres',
+        'POST': 5432,
+    }
+}
+
