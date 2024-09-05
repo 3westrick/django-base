@@ -50,6 +50,7 @@ INSTALLED_APPS = [
 
     # internal apps
     'users',
+    'base',
 ]
 
 AUTH_USER_MODEL = 'users.User'
@@ -72,7 +73,7 @@ MIDDLEWARE = [
 
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
-        'rest_framework.authentication.BaseAuthentication',
+        # 'rest_framework.authentication.BaseAuthentication',
         'rest_framework.authentication.SessionAuthentication',
         'rest_framework_simplejwt.authentication.JWTAuthentication',
     )
@@ -157,6 +158,8 @@ SIMPLE_JWT = {
     "ROTATE_REFRESH_TOKENS": True,
     "BLACKLIST_AFTER_ROTATION": True,
     "UPDATE_LAST_LOGIN": False,
+
+    "TOKEN_OBTAIN_SERIALIZER": "base.serializers.MyTokenObtainPairSerializer",
 }
 
 # CORS_ALLOWED_ORIGINS = ['']
