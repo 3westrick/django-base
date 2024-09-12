@@ -4,11 +4,14 @@ if os.getenv('DATABASE') == "postgres":
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.postgresql',
-            'NAME': 'postgres',
-            'USER': 'postgres',
-            'PASSWORD': 'postgres',
-            'HOST': os.getenv('HOST'),
-            'POST': 5432,
+            'NAME': os.getenv('POSTGRES_DB'),
+            'USER': os.getenv('POSTGRES_USER'),
+            'PASSWORD': os.getenv('postgres'),
+            'HOST': os.getenv('POSTGRES_HOST'),
+            'POST': os.getenv('POSTGRES_PORT'),
         }
     }
+
+    if os.getenv("POSTGRES_PATH"):
+        DATABASES['default']['OPTIONS'] = {"options": f'-c search_path={os.getenv("POSTGRES_PATH")}'}
 
