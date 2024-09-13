@@ -13,6 +13,9 @@ if os.getenv('DATABASE') == "postgres":
         }
     }
 
+
+
+
     if os.getenv("POSTGRES_PATH") and os.getenv("POSTGRES_PATH") != "":
         DATABASES['default']['OPTIONS'] = {"options": f'-c search_path={os.getenv("POSTGRES_PATH")}'}
 
