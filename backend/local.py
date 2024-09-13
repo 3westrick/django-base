@@ -8,7 +8,7 @@ if os.getenv('DATABASE') == "postgres":
             'USER': os.getenv('POSTGRES_USER'),
             'PASSWORD': os.getenv('postgres'),
             'HOST': os.getenv('POSTGRES_HOST'),
-            'POST': os.getenv('POSTGRES_PORT'),
+            'PORT': os.getenv('POSTGRES_PORT'),
         }
     }
 

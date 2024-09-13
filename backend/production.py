@@ -7,13 +7,13 @@ if os.getenv('DATABASE') == "postgres":
             'ENGINE': 'django.db.backends.postgresql',
             'NAME': os.getenv('POSTGRES_DB'),
             'USER': os.getenv('POSTGRES_USER'),
-            'PASSWORD': os.getenv('postgres'),
+            'PASSWORD': os.getenv('POSTGRES_PASSWORD'),
             'HOST': os.getenv('POSTGRES_HOST'),
-            'POST': os.getenv('POSTGRES_PORT'),
+            'PORT': os.getenv('POSTGRES_PORT'),
         }
     }
 
-    if os.getenv("POSTGRES_PATH"):
+    if os.getenv("POSTGRES_PATH") and os.getenv("POSTGRES_PATH") != "":
         DATABASES['default']['OPTIONS'] = {"options": f'-c search_path={os.getenv("POSTGRES_PATH")}'}
 
 if os.getenv("ALLOWED_HOST_1") != 'None':
