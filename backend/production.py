@@ -12,11 +12,8 @@ if os.getenv('DATABASE') == "postgres":
             'PORT': os.getenv('POSTGRES_PORT'),
         }
     }
-
-
-
-
-    if os.getenv("POSTGRES_PATH") and os.getenv("POSTGRES_PATH") != "":
+    POSTGRES_PATH = os.getenv("POSTGRES_PATH")
+    if POSTGRES_PATH and (POSTGRES_PATH != "None" or POSTGRES_PATH != ""):
         DATABASES['default']['OPTIONS'] = {"options": f'-c search_path={os.getenv("POSTGRES_PATH")}'}
 
 if os.getenv("ALLOWED_HOST_1") != 'None':
